@@ -1,6 +1,10 @@
 package org.example.controllers;
 
 import org.example.models.Person;
+<<<<<<< HEAD
+=======
+import org.springframework.beans.factory.annotation.Autowired;
+>>>>>>> Hotfix
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +15,7 @@ public class PeopleController {
     private PersonDAO personDAO;
     private BookDAO bookDAO;
 
+    @Autowired
     public PeopleController(PersonDAO personDAO, BookDAO bookDAO) {
         this.personDAO = personDAO;
         this.bookDAO = bookDAO;
