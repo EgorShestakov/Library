@@ -1,11 +1,9 @@
 package org.example.controllers;
 
+import org.example.dao.BookDAO;
 import org.example.dao.PersonDAO;
 import org.example.models.Person;
-<<<<<<< HEAD
-=======
 import org.springframework.beans.factory.annotation.Autowired;
->>>>>>> Hotfix
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -25,20 +23,20 @@ public class PeopleController {
     @GetMapping
     public String people(Model model) {
         model.addAttribute("people", personDAO.getPeople());
-        return "people";
+        return "people/people";
     }
 
     @GetMapping("/{id}")
     public String person(Model model, @PathVariable("id") int id) {
         model.addAttribute("person", personDAO.getPerson(id));
-        return "person";
+        return "people/person";
     }
 
     @GetMapping("/{id}/edit")
     public String edit(Model model, @PathVariable("id") int id) {
         model.addAttribute("person", personDAO.getPerson(id));
         model.addAttribute("books", bookDAO.getBooksOfPerson(id));
-        return "edit";
+        return "people/edit";
     }
 
     @PostMapping
