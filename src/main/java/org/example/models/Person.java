@@ -1,7 +1,7 @@
 package org.example.models;
 
 public class Person {
-    private int id;
+    private int personId;
     private String fullName;
     private int yearOfBirth;
     public Person () {
@@ -28,11 +28,11 @@ public class Person {
         this.yearOfBirth = yearOfBirth;
     }
 
-    public int getId() {
-        return id;
+    public int getPersonId() {
+        return personId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setPersonId(int personId) {
+        this.personId = personId;
     }
 }

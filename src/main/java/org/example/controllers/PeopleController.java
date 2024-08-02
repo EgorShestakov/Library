@@ -29,17 +29,17 @@ public class PeopleController {
     @GetMapping("/{id}")
     public String person(Model model, @PathVariable("id") int id) {
         model.addAttribute("person", personDAO.getPerson(id));
+        model.addAttribute("books", bookDAO.getBooksOfPerson(id));
         return "people/person";
     }
 
     @GetMapping("/{id}/edit")
     public String edit(Model model, @PathVariable("id") int id) {
         model.addAttribute("person", personDAO.getPerson(id));
-        model.addAttribute("books", bookDAO.getBooksOfPerson(id));
         return "people/edit";
     }
 
-    @PostMapping
+    @PostMapping()
     public String post(@ModelAttribute Person person) {
         personDAO.addPerson(person);
         return "redirect:/people";
