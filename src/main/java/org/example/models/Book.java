@@ -1,9 +1,16 @@
 package org.example.models;
 
 public class Book {
+    private int bookId;
+
+    private int personId;
     private String name;
     private String author;
     private int yearProduction;
+
+    public Book() {
+
+    }
 
     public Book(String name, String author, int yearProduction) {
         this.name = name;
@@ -33,5 +40,21 @@ public class Book {
 
     public void setYearProduction(int yearProduction) {
         this.yearProduction = yearProduction;
+    }
+
+    public int getBookId() {
+        return bookId;
+    }
+
+    public void setBookId(int bookId) {
+        this.bookId = bookId;
+    }
+
+    public int getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(int personId) {
+        this.personId = personId;
     }
 }

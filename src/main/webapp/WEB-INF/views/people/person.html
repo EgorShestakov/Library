@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.com">
+<head>
+    <meta charset="UTF-8">
+    <title>Человек</title>
+</head>
+<body>
+  <p th:text="${person.getFullName() + ', ' + person.getYearOfBirth()}">Full name, yearOrBirth</p>
+  <hr/>
+  <b>Книги:</b>
+  <div th:each="book : ${books}">
+    <p th:text="${book.getName() + ',' + book.getAuthor() + ',' + book.getYearProduction()}">Name of book</p>
+  </div>
+  <hr/>
+  <form method="GET" th:action="@{/people/{id}/edit(id=${person.getPersonId()})}">
+  <input type="submit" value="Редактировать"/>
+  </form>
+  <br/>
+  <form th:method="DELETE" th:action="@{/people/{id}(id=${person.getPersonId()})}">
+  <input type="submit" value="Удалить"/>
+  </form>
+</body>
+</html>
