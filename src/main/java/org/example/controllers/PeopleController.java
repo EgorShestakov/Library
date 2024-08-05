@@ -33,6 +33,12 @@ public class PeopleController {
         return "people/person";
     }
 
+    @GetMapping("/new")
+    public String form(Model model) {
+        model.addAttribute("person", new Person());
+        return "people/form";
+    }
+
     @GetMapping("/{id}/edit")
     public String edit(Model model, @PathVariable("id") int id) {
         model.addAttribute("person", personDAO.getPerson(id));
