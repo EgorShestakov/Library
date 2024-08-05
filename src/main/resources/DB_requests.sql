@@ -18,3 +18,4 @@ INSERT INTO Book(name, person_id, yearproduction) VALUES('Волшебная г�
 DROP TABLE Book
 INSERT INTO Book(name, author, yearproduction) VALUES('Волшебная гора', 'Томас Манн', 1924); -- Можно добавить книгу без владельца
 DELETE FROM Book;
+UPDATE Book SET person_id=2;
