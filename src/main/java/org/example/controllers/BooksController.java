@@ -32,7 +32,19 @@ public class BooksController {
         return "books/book";
     }
 
-    @PostMapping("/new")
+    @GetMapping("/{id}/edit")
+    public String edit(Model model, @PathVariable int id) {
+        model.addAttribute("book", bookDAO.getBook(id));
+        return "books/edit";
+    }
+
+    @GetMapping("/new")
+    public String form(Model model) {
+        model.addAttribute("newBook", new Book());
+        return "books/form";
+    }
+
+    @PostMapping()
     public String addBook(@ModelAttribute Book book) {
         bookDAO.addBook(book);
         return "redirect:/books";

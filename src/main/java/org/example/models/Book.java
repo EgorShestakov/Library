@@ -2,8 +2,6 @@ package org.example.models;
 
 public class Book {
     private int bookId;
-
-    private int personId;
     private String name;
     private String author;
     private int yearProduction;
@@ -50,11 +48,4 @@ public class Book {
         this.bookId = bookId;
     }
 
-    public int getPersonId() {
-        return personId;
-    }
-
-    public void setPersonId(int personId) {
-        this.personId = personId;
-    }
 }
