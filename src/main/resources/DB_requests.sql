@@ -17,5 +17,6 @@ INSERT INTO Person(fullname, yearofbirth) VALUES('Иванов Иван Иван
 INSERT INTO Book(name, person_id, yearproduction) VALUES('Волшебная гора', 1, 1924);
 DROP TABLE Book
 INSERT INTO Book(name, author, yearproduction) VALUES('Волшебная гора', 'Томас Манн', 1924); -- Можно добавить книгу без владельца
-DELETE FROM Book;
-UPDATE Book SET person_id=2;
+DELETE FROM Book WHERE book_id=4;
+UPDATE Book SET person_id=2 WHERE book_id=1;
+SELECT Person.* FROM Book JOIN Person ON Person.person_id = Book.person_id WHERE book_id=2
