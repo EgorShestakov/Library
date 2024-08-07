@@ -7,8 +7,10 @@ import org.example.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller()
@@ -48,18 +50,22 @@ public class BooksController {
 
     @GetMapping("/new")
     public String form(Model model) {
-        model.addAttribute("newBook", new Book());
+        model.addAttribute("book", new Book());
         return "books/form";
     }
 
     @PostMapping()
-    public String addBook(@ModelAttribute Book book) {
+    public String addBook(@ModelAttribute @Valid Book book, BindingResult bindingResult) {
+        if (bindingResult.hasErrors())
+            return "books/form";
         bookDAO.addBook(book);
         return "redirect:/books";
     }
 
     @PatchMapping("/{id}")
-    public String update(@PathVariable("id") int id, @ModelAttribute Book newBook) {
+    public String update(@PathVariable("id") int id, @ModelAttribute @Valid Book newBook, BindingResult bindingResult) {
+        if (bindingResult.hasErrors())
+            return "books/edit";
         bookDAO.updateBook(id, newBook);
         return "redirect:/books";
     }

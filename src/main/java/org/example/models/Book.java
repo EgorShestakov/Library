@@ -1,9 +1,17 @@
 package org.example.models;
+import java.time.LocalDate;
+
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotEmpty;
 
 public class Book {
+
     private int bookId;
+    @NotEmpty(message = "У книги должно быть название")
     private String name;
+    @NotEmpty(message = "У книги должен быть автор")
     private String author;
+    
     private int yearProduction;
 
     public Book() {
